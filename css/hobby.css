@@ -1,0 +1,381 @@
+/* Import base styles */
+@import url('style.css');
+
+/* =============================================
+   HOBBY PAGE: LAYOUT FIXES
+   ============================================= */
+
+/* Reset any potential overflow */
+.layout-scroll-container {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.layout-scroll-section {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.layout-scroll-section .container {
+    max-width: 1200px; /* Szerzej na desktop */
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =============================================
+   HOBBY PAGE: IMAGE COMPONENTS
+   ============================================= */
+
+/* Aspect ratio container for taller images */
+/* Aspect ratio container for taller images */
+.aspect-ratio-container {
+    position: relative;
+    width: 100%;
+    padding-top: 100%; /* ZMIANA: 100% = 1:1 (kwadrat) */
+    overflow: hidden;
+    border-radius: 12px;
+    background: rgba(11, 26, 51, 0.2);
+}
+
+/* Dla desktop */
+@media (min-width: 992px) {
+    .aspect-ratio-container {
+        padding-top: 100%; /* ZMIANA: 100% zamiast 80% */
+    }
+}
+
+/* Dla mobile */
+@media (max-width: 768px) {
+    .aspect-ratio-container {
+        padding-top: 100%; /* ZMIANA: 100% zamiast 70% */
+    }
+}
+
+/* Dla extra small */
+@media (max-width: 576px) {
+    .aspect-ratio-container {
+        padding-top: 100%; /* ZMIANA: 100% zamiast 65% */
+    }
+}
+
+/* Landscape orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .aspect-ratio-container {
+        padding-top: 100%; /* ZMIANA: 100% zamiast 50% */
+    }
+}
+
+.aspect-ratio-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s var(--animation-timing-smooth);
+    border: none !important; /* BEZ BORDERA */
+    outline: none !important;
+}
+
+/* Image wrapper - bez bordera */
+.component-hobby-image-wrapper {
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 1rem;
+    transition: all 0.3s var(--animation-timing-smooth);
+    border: none; /* Bez bordera */
+}
+
+.component-hobby-image-wrapper:hover {
+    transform: translateY(-5px);
+}
+
+.component-hobby-image-wrapper:hover .aspect-ratio-container img {
+    transform: scale(1.03);
+}
+
+.component-hobby-image {
+    border-radius: 8px;
+}
+
+/* =============================================
+   HOBBY PAGE: CONTENT STYLING
+   ============================================= */
+
+/* Content area styling */
+.layout-scroll-section .col-lg-7 {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+}
+
+/* List styling */
+.list-unstyled li {
+    padding-left: 0.5rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+.list-unstyled li:before {
+    content: "•";
+    color: var(--color-fluent-ui);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+}
+
+/* Button styling to match index.html */
+.btn-outline-light {
+    color: var(--color-pure-white) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-color: var(--color-fluent-ui) !important;
+    color: var(--color-pure-white) !important;
+}
+
+/* =============================================
+   HOBBY PAGE: RESPONSIVE ADJUSTMENTS
+   ============================================= */
+
+/* Tablet and Desktop adjustments */
+@media (min-width: 992px) {
+    .layout-scroll-section {
+        min-height: 100vh;
+        padding-top: 100px; /* Więcej przestrzeni na desktop */
+    }
+    
+    .aspect-ratio-container {
+        padding-top: 80%; /* Jeszcze wyższe na desktop */
+    }
+}
+
+@media (max-width: 1199px) {
+    .layout-scroll-section .container {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 991px) {
+    .layout-scroll-section .container {
+        max-width: 720px;
+    }
+    
+    /* Stack columns on tablets */
+    .layout-scroll-section .row {
+        flex-direction: column;
+    }
+    
+    .layout-scroll-section .col-lg-5,
+    .layout-scroll-section .col-lg-7 {
+        width: 100%;
+        max-width: 100%;
+        padding-left: 0;
+        padding-right: 0;
+    }
+    
+    /* Remove order on tablet */
+    .order-lg-1,
+    .order-lg-2 {
+        order: 0 !important;
+    }
+    
+    /* Adjust image size for tablets */
+    .component-hobby-image-wrapper {
+        max-width: 700px;
+        margin: 0 auto 2.5rem;
+    }
+    
+    .aspect-ratio-container {
+        max-width: 100%;
+    }
+    
+    /* Center content on tablets */
+    .layout-scroll-section .col-lg-7 {
+        text-align: center;
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+}
+
+/* MOBILE RESPONSIVENESS - PRIORYTET */
+@media (max-width: 768px) {
+    .layout-scroll-section .container {
+        max-width: 540px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    
+    .layout-scroll-section {
+        padding-top: 80px;
+        padding-bottom: 40px;
+        min-height: auto; /* Nie wymuszaj pełnej wysokości na mobile */
+        display: flex;
+        align-items: flex-start; /* Zacznij od góry na mobile */
+    }
+    
+    .aspect-ratio-container {
+        padding-top: 70%; /* Optymalna wysokość na mobile */
+        margin-bottom: 1.5rem;
+    }
+    
+    .component-hobby-image-wrapper {
+        padding: 0.75rem;
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+    
+    /* Adjust text sizes for mobile */
+    .display-5 {
+        font-size: 1.8rem !important;
+        margin-bottom: 1rem !important;
+    }
+    
+    .lead {
+        font-size: 1.1rem;
+        line-height: 1.5;
+        margin-bottom: 1.5rem;
+    }
+    
+    .h5 {
+        font-size: 1.2rem;
+    }
+    
+    /* List adjustments for mobile */
+    .list-unstyled {
+        margin-bottom: 1.5rem;
+    }
+    
+    .list-unstyled li {
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+    }
+    
+    /* Button adjustments for mobile */
+    .btn-outline-light {
+        width: 100%;
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+    }
+    
+    /* Content padding adjustments */
+    .layout-scroll-section .col-lg-7 {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+/* Extra small devices (phones) */
+@media (max-width: 576px) {
+    .layout-scroll-section .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    
+    .layout-scroll-section {
+        padding-top: 70px;
+        padding-bottom: 30px;
+    }
+    
+    .display-5 {
+        font-size: 1.6rem !important;
+    }
+    
+    .lead {
+        font-size: 1rem;
+    }
+    
+    .aspect-ratio-container {
+        padding-top: 65%; /* Dla bardzo małych ekranów */
+    }
+    
+    .component-hobby-image-wrapper {
+        padding: 0.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    /* Footer adjustments for mobile */
+    .component-footer-page {
+        padding: 0.75rem 0 !important;
+        font-size: 0.8rem;
+    }
+}
+
+/* Landscape orientation for phones */
+@media (max-width: 768px) and (orientation: landscape) {
+    .layout-scroll-section {
+        min-height: 100vh; /* Pełna wysokość w landscape */
+    }
+    
+    .aspect-ratio-container {
+        padding-top: 50%; /* Szersze w landscape */
+    }
+    
+    .layout-scroll-section .row {
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    .layout-scroll-section .col-lg-5 {
+        width: 45%;
+    }
+    
+    .layout-scroll-section .col-lg-7 {
+        width: 55%;
+        text-align: left;
+        padding-left: 1.5rem;
+    }
+}
+
+/* =============================================
+   HOBBY PAGE: ANIMATIONS
+   ============================================= */
+
+/* Stagger animations for elements */
+.state-element-hidden {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: all var(--animation-duration-medium) var(--animation-timing-smooth);
+}
+
+.state-element-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Animation delays for staggered effect */
+#gaming .state-element-hidden { transition-delay: 0.1s; }
+#anime .state-element-hidden { transition-delay: 0.2s; }
+#video .state-element-hidden { transition-delay: 0.3s; }
+#coding .state-element-hidden { transition-delay: 0.4s; }
+
+/* =============================================
+   HOBBY PAGE: NAVIGATION HIGHLIGHT
+   ============================================= */
+
+/* Active link styling for hobby page */
+.nav-link.active {
+    color: var(--color-fluent-ui) !important;
+    position: relative;
+}
+
+.nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: var(--color-fluent-ui);
+    border-radius: 2px;
+}
