@@ -1,0 +1,19 @@
+# Pliki systemowe Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Pliki systemowe macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Logi i pliki tymczasowe
+*.log
+
+# Konfiguracje edytorów (VS Code, JetBrains)
+.vscode/
+.idea/
+
+# Zależności (jeśli w przyszłości użyjesz npm)
+node_modules/
