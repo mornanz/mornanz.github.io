@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Personal | Kamil Drzewiecki</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/personal.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top component-navigation-primary">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="index.html">mornanz.github.io</a>
+        
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navMenu">
+            <ul class="navbar-nav ms-auto gap-3 align-items-center">
+                <li class="nav-item"><a class="nav-link" href="index.html#github">Open Source</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#commercial">Komercyjne</a></li>
+                <li class="nav-item"><a class="nav-link" href="index.html#hobby">Dodatkowe</a></li>
+                
+                <li class="nav-item">
+                    <button id="language-toggle" class="btn btn-link nav-link p-0 component-button-language" 
+                            type="button" 
+                            aria-label="Toggle language between Polish and English">
+                        <img id="language-flag" class="flag-icon" src="assets/pl_flag.svg" alt="Polish flag" width="24" height="18">
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<main class="layout-scroll-container">
+    
+    <!-- Section 1: About Me with Image -->
+    <section id="about" class="layout-scroll-section d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Left: Image (40% on desktop) -->
+                <div class="col-lg-5 col-md-6 mb-4 mb-lg-0">
+                    <div class="component-image-frame text-center">
+                        <img src="assets/personal-photo.jpg" alt="Kamil Drzewiecki" class="img-fluid rounded-circle component-profile-image">
+                    </div>
+                </div>
+                
+                <!-- Right: Content (60% on desktop) -->
+                <div class="col-lg-7 col-md-6 text-center text-md-start">
+                    <div class="state-element-hidden">
+                        <h1 class="display-4 fw-bold mb-4">O mnie</h1>
+                        <p class="lead mb-4">
+                            Jestem studentem Informatyki specjalizującym się w Grafice Komputerowej i Projektowaniu. 
+                            Pasję do technologii łączę<br>z zainteresowaniem psychologią odbioru, wpływem emocji<br>i sposobem, w jaki przekaz artystyczny oddziałuje na widza.
+                        </p>
+                        <p class="mb-4">
+                            Interesuje mnie nie tylko tworzenie wizualnych projektów, lecz także istota przedstawiania dzieła - od produkcji audiowizualnych, przez dubbing i grę aktorską, po projektowanie doświadczeń, które angażują emocje odbiorcy.
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-md-start">
+                            <span class="badge bg-component-tag">Computer Graphics</span>
+                            <span class="badge bg-component-tag">Translation</span>
+                            <span class="badge bg-component-tag">Localization</span>
+                            <span class="badge bg-component-tag">Video Editing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Education & Background -->
+    <section id="education" class="layout-scroll-section d-flex align-items-center modifier-background-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <div class="state-element-hidden">
+                        <h2 class="display-5 fw-bold mb-4">Edukacja & Doświadczenie</h2>
+                        <p class="lead-subtitle mx-auto utility-limit-width">Ścieżka akademicka i rozwój zawodowy</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Box 1 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="component-card-education state-element-hidden">
+                        <div class="component-education-icon mb-3">
+                            <span class="display-6">🎓</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-2">Informatyka - Szkoła Średnia</h3>
+                        <p class="text-muted-light mb-1">Zespół Szkół Morskich</p>
+                        <p class="small opacity-75 mb-3">2018 - 2022</p>
+                        <p class="mb-0">
+                            Konserwacja sprzętu komputerowego, administracja systemami oraz siecią komputerową, podstawy programowania języków kompilowanych oraz WebDev.
+                        </p>
+                    </div>
+                </div>
+                <!-- Box 2 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="component-card-education state-element-hidden">
+                        <div class="component-education-icon mb-3">
+                            <span class="display-6">🎓</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-2">Informatyka - Studia Inżynierskie</h3>
+                        <p class="text-muted-light mb-1">Politechnika Morska w Szczecinie</p>
+                        <p class="small opacity-75 mb-3">2022 - obecnie</p>
+                        <p class="mb-0">
+                            Pogłębianie wiedzy z zagadnień programowania, projektowania aplikacji, modelowania systemów oraz rozwiązywania problemów inżynierskich z dziedziny elektroniki i automatyki.
+                        </p>
+                    </div>
+                </div>
+                <!-- Box 3 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="component-card-education state-element-hidden">
+                        <div class="component-education-icon mb-3">
+                            <span class="display-6">💼</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-2">Zlecenia i Freelancing</h3>
+                        <p class="text-muted-light mb-1">CRMdlakazdego oraz klienci pośredni</p>
+                        <p class="small opacity-75 mb-3">2025 - obecnie</p>
+                        <p class="mb-0">
+                            Realizacja projektów graficznych, Marketing Design oraz pozostałe zagadnienia dziedziny grafiki komputerowej dla różnych klientów.
+                        </p>
+                    </div>
+                </div>
+                <!-- Box 4 -->
+                <div class="col-md-6 col-lg-6">
+                    <div class="component-card-education state-element-hidden">
+                        <div class="component-education-icon mb-3">
+                            <span class="display-6">🌐</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-2">Polish Localization Lead</h3>
+                        <p class="text-muted-light mb-1">One Pace Project</p>
+                        <p class="small opacity-75 mb-3">2025 - obecnie</p>
+                        <p class="mb-0">
+                            Tłumaczenie i lokalizacja oparta na standaryzacji oraz jakościowym podejściu do przekładu na język polski.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 3: Skills & Technologies -->
+    <section id="skills" class="layout-scroll-section d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <div class="state-element-hidden">
+                        <h2 class="display-5 fw-bold mb-4">Umiejętności & Technologie</h2>
+                        <p class="lead-subtitle mx-auto utility-limit-width">Przykładowe narzędzia i technologie, którymi się posługuję</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-4">
+                <!-- Box 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="component-skill-card text-center state-element-hidden">
+                        <div class="component-skill-icon mb-4">
+                            <span class="display-6">🎨</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Design & Grafika</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">Affinity / GIMP</li>
+                            <li class="mb-2">Adobe Photoshop</li>
+                            <li class="mb-2">Blender / Unity 3D</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Box 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="component-skill-card text-center state-element-hidden">
+                        <div class="component-skill-icon mb-4">
+                            <span class="display-6">💻</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Development</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">HTML / CSS / JS</li>
+                            <li class="mb-2">C++ / C# / Assembly</li>
+                            <li class="mb-2">PHP / SQL / MS Azure</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Box 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="component-skill-card text-center state-element-hidden">
+                        <div class="component-skill-icon mb-4">
+                            <span class="display-6">🎬</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Montaż wideo</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">Camtasia Studio</li>
+                            <li class="mb-2">Adobe After Effects</li>
+                            <li class="mb-2">Capcut / VEGAS PRO</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Box 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="component-skill-card text-center state-element-hidden">
+                        <div class="component-skill-icon mb-4">
+                            <span class="display-6">⚙️</span>
+                        </div>
+                        <h3 class="h5 fw-bold mb-3">Pozostałe narzędzia</h3>
+                        <ul class="list-unstyled">
+                            <li class="mb-2">LOGO! Software</li>
+                            <li class="mb-2">MATLAB / Simulink</li>
+                            <li class="mb-2">Aegisub / SubtitleEdit</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4: Contact & Links -->
+    <section id="contact" class="layout-scroll-section d-flex align-items-center modifier-background-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <div class="state-element-hidden">
+                        <h2 class="display-5 fw-bold mb-4">Kontakt & Linki</h2>
+                        <p class="lead-subtitle mx-auto utility-limit-width">Skontaktuj się ze mną lub sprawdź moje aktywności</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="component-contact-card state-element-hidden">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <h3 class="h5 fw-bold mb-4">Dane kontaktowe</h3>
+                                <ul class="list-unstyled">
+                                    <li class="mb-3 d-flex align-items-center">
+                                        <span class="me-3">📧</span>
+                                        <span>drzewieckibiz@gmail.com</span>
+                                    </li>
+                                    <li class="mb-3 d-flex align-items-center">
+                                        <span class="me-3">👔</span>
+                                        <span><a href="https://www.linkedin.com/in/kamil-drzewiecki-biz/" class="text-decoration-none" target="_blank">LinkedIn</a></span>
+                                    </li>
+                                    <li class="mb-3 d-flex align-items-center">
+                                        <span class="me-3">💾</span>
+                                        <span><a href="https://github.com/mornanz" class="text-decoration-none" target="_blank">GitHub</a></span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-md-6">
+                                <h3 class="h5 fw-bold mb-4">Dostępność</h3>
+                                <p class="mb-4">
+                                    Otwarty na współpracę przy projektach związanych z grafiką komputerową, 
+                                    lokalizacją i przekładem na język Polski.
+                                </p>
+                                <a href="mailto:contact@mornanz.dev" class="btn btn-primary">Wyślij wiadomość</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="component-footer-page position-absolute bottom-0 start-0 end-0 py-3">
+                <p class="small mb-0 opacity-50">© 2026 GitHub Pages Portfolio • Built with Bootstrap 5</p>
+            </footer>
+        </div>
+    </section>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/personal.js"></script>
+</body>
+</html>
