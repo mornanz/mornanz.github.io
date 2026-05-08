@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pl: [
             { id: "intro", bg: "", t: "h1", tc: "display-3 fw-bold", title: "Kamil Drzewiecki", desc: "CS major focused on Computer Graphics & Design<br>Polish Localization Lead at the One Pace Project", bt: "Personal", bu: "personal.html", bc: "btn-outline-light" },
             { id: "github", bg: "modifier-background-overlay", t: "h2", tc: "display-5 fw-bold", title: "GitHub Repository", desc: "Prowadzone przez lata projekty GitHub.", bt: "View Source", bu: "https://github.com/mornanz", bc: "btn-outline-light", target: "_blank" },
-            { id: "commercial", bg: "", t: "h2", tc: "display-5 fw-bold", title: "Commercial Portfolio", desc: "Rozwiązania komercyjne i wykonane zlecenia.", bt: "Explore Case Studies", bu: "commercial.html", bc: "btn-primary" },
+            { id: "commercial", bg: "", t: "h2", tc: "display-5 fw-bold", title: "Commercial Portfolio", desc: "Rozwiązania komercyjne i wykonane zlecenia.", bt: "Explore Case Studies", bu: "https://drive.google.com/drive/folders/1GHxDWmv3SQlosFuCwoNyH8Hc-FacQUOL?usp=sharing", bc: "btn-primary" },
             { id: "hobby", bg: "", t: "h2", tc: "display-5 fw-bold", title: "Personal Endeavors", desc: "Udział własny w projektach nieodpłatnych.", bt: "Discover More", bu: "hobby.html", bc: "btn-primary" }
         ],
         en: [
