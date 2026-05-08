@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 targetElements.forEach((element, index) => {
                     setTimeout(() => {
                         element.classList.add('state-element-visible');
-                    }, index * 100); // Kaskadowe opóźnienie
+                    }, index * 100);
                 });
             }
         });
