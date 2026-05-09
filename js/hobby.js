@@ -1,10 +1,5 @@
-/**
- * Hobby Page Controller
- * Odpowiada tylko za bazę danych i strukturę HTML.
- */
 document.addEventListener('DOMContentLoaded', () => {
     
-    // --- 1. DANE ---
     const pageData = {
         pl: [
             {
@@ -55,7 +50,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.getElementById('dynamic-sections-wrapper');
     if (!wrapper) return;
 
-    // --- 2. RENDEROWANIE ---
     const renderSections = (lang) => {
         const data = pageData[lang] || pageData['pl'];
         let htmlContent = '';
@@ -83,8 +77,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>`;
             }
 
+            // TUTAJ ZMIANA: z btn-outline-light na btn-primary
             const buttonHtml = section.button 
-                ? `<a href="${section.button.url}" target="_blank" class="btn btn-outline-light btn-lg mt-3 px-5">${section.button.text}</a>` 
+                ? `<a href="${section.button.url}" target="_blank" class="btn btn-primary btn-lg mt-3 px-5">${section.button.text}</a>` 
                 : '';
 
             htmlContent += `
@@ -115,15 +110,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         wrapper.innerHTML = htmlContent;
 
-        // Odśwież animacje przez globalny silnik z core.js
         if (window.refreshAnimations) window.refreshAnimations();
     };
 
-    // --- 3. LOGIKA JĘZYKA ---
-    window.addEventListener('languageChanged', (event) => {
-        renderSections(event.detail.language);
-    });
-
-    const initialLang = localStorage.getItem('site_lang') || 'pl';
-    renderSections(initialLang);
+    window.addEventListener('languageChanged', (event) => renderSections(event.detail.language));
+    renderSections(localStorage.getItem('site_lang') || 'pl');
 });
