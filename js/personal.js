@@ -96,8 +96,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const eduBoxes = d.education.items.map(item => `
             <div class="col-md-6 col-lg-6">
-                <div class="component-card-education state-element-hidden">
-                    <div class="component-education-icon mb-3"><span class="display-6">${item.icon}</span></div>
+                <div class="component-glass-card component-card-education state-element-hidden">
+                    <div class="component-circle-icon icon-md mb-3"><span class="display-6">${item.icon}</span></div>
                     <h3 class="h5 fw-bold mb-2">${item.title}</h3>
                     <p class="text-muted-light mb-1">${item.org}</p>
                     <p class="small opacity-75 mb-3">${item.years}</p>
@@ -125,8 +125,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const listHtml = item.list.map(li => `<li class="mb-2">${li}</li>`).join('');
             return `
             <div class="col-md-6 col-lg-3">
-                <div class="component-skill-card text-center state-element-hidden">
-                    <div class="component-skill-icon mb-4"><span class="display-6">${item.icon}</span></div>
+                <div class="component-glass-card component-skill-card text-center state-element-hidden">
+                    <div class="component-circle-icon icon-lg mb-4"><span class="display-6">${item.icon}</span></div>
                     <h3 class="h5 fw-bold mb-3">${item.title}</h3>
                     <ul class="list-unstyled">${listHtml}</ul>
                 </div>
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     </div>
                     <div class="row">
                         <div class="col-lg-8 mx-auto">
-                            <div class="component-contact-card state-element-hidden">
+                            <div class="component-glass-card component-contact-card state-element-hidden">
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <h3 class="h5 fw-bold mb-4">${d.contact.cTitle}</h3>

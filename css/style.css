@@ -1,27 +1,24 @@
 :root {
-    /* Brand Color Palette */
     --color-midnight-ui: #0b1a33;
+    --color-midnight-rgb: 11, 26, 51;
     --color-deep-indigo: #362bcf;
     --color-fluent-ui: #0078d4;
+    --color-fluent-rgb: 0, 120, 212;
     --color-carbon-black: #262626;
     --color-pure-white: #ffffff;
     
-    /* Effect Tokens */
     --effect-glass-opacity: 0.5;
     --effect-glass-blur: 14px;
     --effect-border-opacity: 0.08;
     
-    /* Spacing Tokens */
     --spacing-container-padding: 3rem;
     --spacing-element-gap: 1rem;
     --spacing-section-offset: 80px;
     
-    /* Animation Tokens */
     --animation-duration-slow: 40s;
     --animation-duration-medium: 0.9s;
     --animation-timing-smooth: cubic-bezier(0.16, 1, 0.3, 1);
     
-    /* Layout Tokens */
     --layout-max-width-content: 600px;
     --layout-min-height-section: 100vh;
 }
@@ -69,14 +66,12 @@ html, body {
     color: var(--color-pure-white);
     font-family: 'Inter', -apple-system, sans-serif;
     overflow: hidden;
-    
     background: linear-gradient(-45deg, 
         var(--color-midnight-ui), 
         var(--color-carbon-black), 
         var(--color-midnight-ui),
         var(--color-carbon-black)
     );
-    
     background-size: 400% 400%;
     animation: animation-background-shift var(--animation-duration-slow) linear infinite;
 }
@@ -91,33 +86,26 @@ html, body {
    ============================================= */
 
 .component-navigation-primary {
-    background: rgba(38, 38, 38, 0.9) !important;
-    backdrop-filter: blur(var(--effect-glass-blur));
-    -webkit-backdrop-filter: blur(var(--effect-glass-blur));
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.3) 50%, rgba(0, 0, 0, 0) 100%) !important;
+    border-bottom: none;
+    transition: background 0.5s var(--animation-timing-smooth);
 }
 
 .component-navigation-primary .nav-link {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: rgba(255, 255, 255, 0.6) !important;
     font-weight: 500;
-    transition: all 0.2s var(--animation-timing-smooth);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    transition: all 0.5s var(--animation-timing-smooth);
 }
 
 .component-navigation-primary .nav-link:hover {
-    color: var(--color-fluent-ui) !important;
-    transform: translateY(-1px);
-    text-shadow: 0 2px 4px rgba(0, 120, 212, 0.3);
-}
-
-.component-navigation-primary .nav-link:focus {
-    color: var(--color-pure-white) !important;
+    color: rgba(255, 255, 255, 1) !important;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
 }
 
 .component-navigation-primary .navbar-brand {
     color: var(--color-pure-white) !important;
     font-weight: 600;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    transition: all 0.5s var(--animation-timing-smooth);
 }
 
 .component-navigation-primary .navbar-brand:hover {
@@ -128,6 +116,24 @@ html, body {
     border-color: rgba(0, 120, 212, 0.3);
 }
 
+.component-navigation-primary .nav-link.active {
+    color: var(--color-pure-white) !important;
+    position: relative;
+}
+
+.component-navigation-primary .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 2px;
+    background: var(--color-pure-white);
+    border-radius: 2px;
+    opacity: 0.8;
+}
+
 /* =============================================
    LAYOUT: SCROLL CONTAINER
    ============================================= */
@@ -135,7 +141,9 @@ html, body {
 .layout-scroll-container {
     scroll-snap-type: y mandatory;
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100vh;
+    width: 100%;
     scroll-behavior: smooth;
 }
 
@@ -147,6 +155,9 @@ html, body {
     display: flex;
     align-items: center;
     background-color: transparent;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
 }
 
 /* =============================================
@@ -164,6 +175,40 @@ html, body {
 }
 
 /* =============================================
+   GLOBAL COMPONENTS: CARDS & ICONS
+   ============================================= */
+
+.component-glass-card {
+    background: rgba(var(--color-midnight-rgb), 0.35);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, var(--effect-border-opacity));
+    border-radius: 16px;
+    transition: all 0.3s var(--animation-timing-smooth);
+    height: 100%;
+}
+
+.component-glass-card:hover {
+    background: rgba(var(--color-midnight-rgb), 0.5);
+    transform: translateY(-5px);
+    border-color: var(--color-fluent-ui);
+    box-shadow: 0 12px 36px rgba(var(--color-fluent-rgb), 0.15);
+}
+
+.component-circle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(var(--color-fluent-rgb), 0.1);
+    border-radius: 50%;
+    border: 1px solid rgba(var(--color-fluent-rgb), 0.2);
+    margin: 0 auto;
+}
+
+.icon-lg { width: 70px; height: 70px; }
+.icon-md { width: 60px; height: 60px; }
+
+/* =============================================
    MODIFIER: BACKGROUND OVERLAY
    ============================================= */
 
@@ -178,7 +223,7 @@ html, body {
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(38, 38, 38, 0.2);
+    background-color: rgba(0, 0, 0, 0.2);
     z-index: -1;
 }
 
@@ -190,6 +235,11 @@ html, body {
     max-width: var(--layout-max-width-content);
 }
 
+.utility-layer-content {
+    position: relative;
+    z-index: 1;
+}
+
 /* =============================================
    STATE: SCROLL REVEAL
    ============================================= */
@@ -197,7 +247,8 @@ html, body {
 .state-element-hidden {
     opacity: 0;
     transform: translateY(25px);
-    transition: all var(--animation-duration-medium) var(--animation-timing-smooth);
+    transition: opacity var(--animation-duration-medium) var(--animation-timing-smooth), 
+                transform var(--animation-duration-medium) var(--animation-timing-smooth);
 }
 
 .state-element-visible {
@@ -211,18 +262,8 @@ html, body {
 
 .component-footer-page {
     text-align: center;
-    background: rgba(38, 38, 38, 0.8) !important;
-    backdrop-filter: blur(var(--effect-glass-blur));
-    -webkit-backdrop-filter: blur(var(--effect-glass-blur));
-}
-
-/* =============================================
-   UTILITY: Z-INDEX MANAGEMENT
-   ============================================= */
-
-.utility-layer-content {
-    position: relative;
-    z-index: 1;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%) !important;
+    border-top: none;
 }
 
 /* =============================================
@@ -235,17 +276,14 @@ html, body {
     justify-content: center;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    transition: all 0.3s var(--animation-timing-smooth);
-    background: rgba(38, 38, 38, 0.7);
-    border: 1px solid rgba(0, 120, 212, 0.3);
+    background: transparent !important;
+    border: none !important;
     margin-left: 0.5rem;
+    transition: transform 0.3s var(--animation-timing-smooth);
 }
 
 .component-button-language:hover {
-    background: rgba(0, 120, 212, 0.2);
-    border-color: var(--color-fluent-ui);
-    transform: scale(1.05);
+    transform: scale(1.1);
 }
 
 .component-button-language:active {
@@ -257,8 +295,12 @@ html, body {
     height: 18px;
     display: block;
     object-fit: contain;
-    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.3));
-    transition: transform 0.3s var(--animation-timing-smooth);
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));
+    transition: all 0.3s var(--animation-timing-smooth);
+}
+
+.component-button-language:hover .flag-icon {
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.4));
 }
 
 @media (max-width: 992px) {
@@ -266,36 +308,13 @@ html, body {
         width: 36px;
         height: 36px;
         margin-left: 0;
-        background: rgba(38, 38, 38, 0.8);
-    }
-    
-    .flag-icon {
-        width: 22px;
-        height: 16px;
+        background: transparent !important;
     }
 }
 
 /* =============================================
-   TEXT ACCENTS
+   TYPOGRAPHY ENHANCEMENTS
    ============================================= */
-
-.text-accent {
-    color: var(--color-fluent-ui);
-}
-
-a:hover {
-    color: var(--color-fluent-ui);
-}
-
-/* =============================================
-   GLASS EFFECT ENHANCEMENTS
-   ============================================= */
-
-.component-panel-content,
-.component-button-language,
-.component-footer-page {
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-}
 
 h1, h2, h3, h4, h5, h6 {
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
@@ -303,5 +322,4 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
     color: rgba(255, 255, 255, 0.9);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }

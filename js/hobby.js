@@ -1,5 +1,10 @@
+/**
+ * Hobby Page Controller
+ * Odpowiada tylko za bazę danych i strukturę HTML.
+ */
 document.addEventListener('DOMContentLoaded', () => {
     
+    // --- 1. DANE ---
     const pageData = {
         pl: [
             {
@@ -50,6 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const wrapper = document.getElementById('dynamic-sections-wrapper');
     if (!wrapper) return;
 
+    // --- 2. RENDEROWANIE ---
     const renderSections = (lang) => {
         const data = pageData[lang] || pageData['pl'];
         let htmlContent = '';
@@ -59,6 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const bgClass = isAlternate ? 'modifier-background-overlay' : '';
             const imgOrderClass = isAlternate ? 'order-lg-2' : '';
             const textOrderClass = isAlternate ? 'order-lg-1' : '';
+
+            const isLast = index === data.length - 1;
+            const footerHtml = isLast ? `
+                <footer class="component-footer-page position-absolute bottom-0 w-100 py-3 text-center z-3">
+                    <p class="small mb-0 opacity-50 text-white">© 2026 GitHub Pages Portfolio • Built with Bootstrap 5</p>
+                </footer>
+            ` : '';
 
             let listHtml = '';
             if (section.listTitle && section.listItems.length > 0) {
@@ -75,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 : '';
 
             htmlContent += `
-                <section id="${section.id}" class="layout-scroll-section d-flex align-items-center ${bgClass}">
+                <section id="${section.id}" class="layout-scroll-section position-relative d-flex align-items-center ${bgClass}">
                     <div class="container">
                         <div class="row align-items-center g-5">
                             <div class="col-lg-5 ${imgOrderClass}">
@@ -95,15 +108,22 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                     </div>
+                    ${footerHtml}
                 </section>
             `;
         });
 
         wrapper.innerHTML = htmlContent;
 
+        // Odśwież animacje przez globalny silnik z core.js
         if (window.refreshAnimations) window.refreshAnimations();
     };
 
-    window.addEventListener('languageChanged', (event) => renderSections(event.detail.language));
-    renderSections(localStorage.getItem('site_lang') || 'pl');
+    // --- 3. LOGIKA JĘZYKA ---
+    window.addEventListener('languageChanged', (event) => {
+        renderSections(event.detail.language);
+    });
+
+    const initialLang = localStorage.getItem('site_lang') || 'pl';
+    renderSections(initialLang);
 });
